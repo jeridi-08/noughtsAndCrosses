@@ -33,6 +33,33 @@ class MainActivity : ComponentActivity() {
             var x1y3 = findViewById<Button>(R.id.x1y3)
             var x2y3 = findViewById<Button>(R.id.x2y3)
             var x3y3 = findViewById<Button>(R.id.x3y3)
+            var won = 0
+            fun ihateredos() {
+                var place = 0
+                for (x in 0..2) {
+                    if (results[x] == results[x+3] && results[x] == results[x+6] && results[x] != "") {
+                        place = x
+                        won = 1
+                    }
+                }
+                if (results[0] == results[4] && results[4] == results[8] && won == 0 && results[0] != "") {
+                    won = 1
+                    }
+                else if (results[2] == results[4] && results[4] == results[6] && won == 0 && results[2] != "") {
+                    won = 1
+                    place = 2
+                }
+                if (won == 1) {
+                    setContentView(R.layout.win_page)
+                    title = findViewById<Button>(R.id.whowon)
+                    if (results[place] == "X") {
+                        title.text = "Crosses Wins!"
+                    }
+                    else if (results[place] == "O") {
+                        title.text = "Noughts Wins!"
+                    }
+                }
+                }
             if (turn == 0) {
                 title.text = "Noughts Turn!"
             }
@@ -53,6 +80,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x1y1.text = results[0]
+                ihateredos()
             }
             x2y1.setOnClickListener {
                 if (results[1] == "") {
@@ -68,6 +96,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x2y1.text = results[1]
+                ihateredos()
             }
             x3y1.setOnClickListener {
                 if (results[2] == "") {
@@ -83,6 +112,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x3y1.text = results[2]
+                ihateredos()
             }
             x1y2.setOnClickListener {
                 if (results[3] == "") {
@@ -98,6 +128,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x1y2.text = results[3]
+                ihateredos()
             }
             x2y2.setOnClickListener {
                 if (results[4] == "") {
@@ -113,6 +144,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x2y2.text = results[4]
+                ihateredos()
             }
             x3y2.setOnClickListener {
                 if (results[5] == "") {
@@ -128,6 +160,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x3y2.text = results[5]
+                ihateredos()
             }
             x1y3.setOnClickListener {
                 if (results[6] == "") {
@@ -143,6 +176,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x1y3.text = results[6]
+                ihateredos()
             }
             x2y3.setOnClickListener {
                 if (results[7] == "") {
@@ -158,6 +192,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x2y3.text = results[7]
+                ihateredos()
             }
             x3y3.setOnClickListener {
                 if (results[8] == "") {
@@ -173,6 +208,7 @@ class MainActivity : ComponentActivity() {
                     }
                 }
                 x3y3.text = results[8]
+                ihateredos()
             }
         }
     }
